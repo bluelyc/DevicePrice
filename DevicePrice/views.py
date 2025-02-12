@@ -29,7 +29,7 @@ def index(request):
     images = None
 
     try:
-        # Если регион есть в cookie, пытаемся его найти
+         #Если регион есть в cookie, пытаемся его найти
         if region_id:
             region = Region.objects.prefetch_related('images').get(id=region_id)
         else:
