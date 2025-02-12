@@ -1,0 +1,313 @@
+main {
+    padding: 140px 0px 0px 0px;
+    margin-bottom: 20px;
+}
+
+/* Контейнер корзины */
+.cart-container {
+    max-width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0px 0px 20px 0px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+/* Блок с товарами */
+.cart-items {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Основной контейнер товара */
+.cart-item {
+    display: flex;
+    justify-content: space-between; /* Растягиваем содержимое по горизонтали */
+    align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+    gap: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Изображение товара */
+.item-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* Детали товара */
+.item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100px; /* Настройте ширину по вашему макету */
+}
+
+/* Название товара */
+.item-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.4;
+    word-wrap: break-word; /* Перенос слов */
+    overflow-wrap: break-word; /* Альтернативный перенос для длинных слов */
+}
+/* Блок цены и кнопок */
+.item-actions {
+    display: flex;
+    flex-direction: column; /* Располагаем элементы вертикально */
+    align-items: flex-end; /* Выравниваем элементы по правому краю */
+    gap: 10px;
+}
+
+/* Цена товара */
+.item-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Кнопки */
+.item-icons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Кнопка "В корзину" */
+.add-to-cart {
+    padding: 8px 12px;
+    background-color: #ff6600; /* Оранжевый фон */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #cc5200; /* Темно-оранжевый фон при наведении */
+}
+
+/* Остальные кнопки */
+.action-button {
+    padding: 6px 10px;
+    background-color: #f0f0f0; /* Светлый фон для остальных кнопок */
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* Иконки для дополнительных действий */
+
+
+/* Кнопки для иконок (избранное, сравнение, удаление) */
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.icon-btn:hover {
+    background-color: #f86619;
+}
+
+.icon-btn i {
+    font-size: 18px;
+    color: #555;
+}
+
+.icon-btn:hover i {
+    color: white;
+}
+
+/* Цена товара */
+.item-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* Блок с итоговой суммой */
+.cart-summary {
+    flex: 1 1 35%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Сумма и количество товаров */
+.summary-count,
+.summary-price {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Кнопка перейти к оформлению */
+.checkout-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6600;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #f86619;
+}
+/* Стили для ссылки "Вернуться назад" */
+.back-link-container {
+    display: none;
+    text-align: center;
+    margin-top: 20px; /* Отступ от контента */
+}
+
+/* Стилизация самой ссылки */
+.back-link {
+    font-size: 16px;
+    color: #888; /* Серый цвет */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+/* Эффект при наведении */
+.back-link:hover {
+    background-color: #f86619; /* Оранжевый фон на hover */
+    color: #fff; /* Белый текст на hover */
+}
+/* Адаптивность для маленьких экранов */
+/* Адаптивность для экранов шириной до 1024px */
+
+.empty-favorites-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px; /* Задаёт высоту контейнера */
+    margin: 20px auto;
+    background-color: #f9f9f9; /* Светло-серый фон */
+    border: 1px solid #dcdcdc; /* Тонкая серая граница */
+    border-radius: 8px; /* Скругление углов */
+    padding: 20px;
+    max-width: 600px; /* Ограничение ширины блока */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+}
+
+.empty-favorites {
+    font-size: 18px; /* Увеличенный размер шрифта */
+    color: #7a7a7a; /* Серый цвет для текста */
+    line-height: 1.6; /* Лучшая читаемость */
+}
+
+.empty-favorites .highlight {
+    color: #f86619; /* Основной яркий цвет */
+    font-weight: bold;
+}
+
+.empty-favorites .cta {
+    display: block; /* Отдельная строка для завлекающей фразы */
+    margin-top: 10px;
+    color: #f86619;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+@media (max-width: 1254px){
+main {
+    flex: 1;
+    padding: 20px 0px 0px 0px;
+    margin-bottom: 20px;
+}
+}
+@media (max-width: 1024px) {
+    main {
+        margin-top: 150px;
+    }
+
+    .cart-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cart-items,
+    .cart-summary {
+        flex: 1 1 100%;
+    }
+
+    .item-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .item-name {
+        font-size: 14px;
+    }
+
+    .item-price {
+        font-size: 16px;
+    }
+
+    .item-icons {
+        display: flex; /* Располагаем кнопки в ряд */
+        justify-content: flex-start; /* Выравниваем кнопки по левому краю */
+        gap: 8px;
+    }
+
+    .icon-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .checkout-btn {
+        font-size: 14px;
+    }
+
+    .back-link-container {
+        display: block;
+    }
+}
+@media (max-width: 768px){
+    .item-image {
+        width: 60px;
+        height: 60px;
+    }
+}
+/* Адаптивность для экранов шириной до 600px */
+
+

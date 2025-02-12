@@ -1,0 +1,99 @@
+/* Общие стили для страницы "Покупка в кредит" */
+/* Общие стили для блока оплаты */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+main{
+        line-height: 1.6;
+    padding: 100px 0px 0px 0px;
+}
+.main_container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #f86619; /* Акцентная линия сверху */
+}
+.credit {
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* Заголовок */
+.credit h2 {
+    font-size: 32px;
+    color: #f86619; /* Цвет основной палитры */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Стили для блоков с условиями, оплатой и процессом оформления */
+.credit-conditions,
+.credit-payment,
+.credit-process {
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.credit-conditions h3,
+.credit-payment h3,
+.credit-process h3 {
+    font-size: 24px;
+    color: #f86619;
+    border-bottom: 2px solid #f86619;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Стили для списка условий и способов оплаты */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+main ul li {
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+/* Стили для текста в блоке "Процесс оформления кредита" */
+.credit-process p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 767px) {
+    .credit {
+        padding: 15px;
+    }
+
+    .credit-conditions,
+    .credit-payment,
+    .credit-process {
+        padding: 15px;
+    }
+
+    .credit h2 {
+        font-size: 28px;
+    }
+
+    .credit-conditions h3,
+    .credit-payment h3,
+    .credit-process h3 {
+        font-size: 22px;
+    }
+
+    main ul li {
+        font-size: 16px;
+    }
+}

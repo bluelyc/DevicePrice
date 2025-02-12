@@ -1,0 +1,536 @@
+main{
+    padding: 100px 0px 0px 0px;
+    margin-bottom: 20px;
+}
+.cart-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  display: flex;
+  gap: 20px;
+}
+
+/* Контейнер корзины */
+.cart_menu {
+    padding: 20px;
+    min-width: 50%;
+}
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f3f3f3;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+.empty-cart {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+    margin: 20px 0;
+}
+
+.empty-cart span {
+    color: #f86619;
+    font-weight: bold;
+}
+/* Заголовок корзины и кнопка удалить все товары */
+.cart_menu h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remove-all {
+    color: #f86619;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.remove-all:hover {
+    text-decoration: underline;
+}
+
+/* Блок товара в корзине */
+.cart-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    grid-gap: 15px; /* Отступы между элементами */
+    align-items: center; /* Выравнивание по вертикали */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.cart-item  a img {
+    max-width: 120px;
+    height: 100px;
+    border-radius: 5px;
+    margin-right: 15px;
+    margin-top: 12px;
+        object-fit: contain;
+}
+
+/* Название товара */
+.item-details p {
+    font-size: 14px;
+    margin: 0;
+    word-wrap: break-word; /* Перенос слов */
+    overflow-wrap: break-word; /* Альтернативный перенос для длинных слов */
+    line-height: 1.4; /* Межстрочный интервал */
+}
+.item-details {
+    max-width: 200px; /* Настройте ширину по вашему макету */
+}
+
+.item-details p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f86619;
+    margin-bottom: 10px;
+     margin-top: 10px; /* Опускаем цену ниже */
+
+    justify-self: start; /* Сдвигаем влево */
+}
+
+/* Кнопки увеличения/уменьшения количества */
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Расстояние между кнопками и полем ввода */
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.quantity button {
+    width: 25px; /* Уменьшенные кнопки */
+    height: 25px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px; /* Скругление кнопок */
+    transition: background-color 0.3s ease;
+}
+
+.quantity button:hover {
+    background-color: #ddd; /* Изменение цвета при наведении */
+}
+
+.quantity input {
+    width: 50px;
+    text-align: center; /* Текст по центру */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Кнопка удаления товара */
+.remove {
+    margin-top: 10px;
+    color: #f86619;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.remove:hover {
+    text-decoration: underline;
+}
+
+/* Промокод */
+.promo-code {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 30px 0;
+}
+
+.promo-code input {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.promo-code button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f86619;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.promo-code button:hover {
+    background-color: #e45c14;
+}
+
+/* Ссылка "Вернуться к покупкам" */
+.return-to-shopping {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #f86619;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.return-to-shopping:hover {
+    text-decoration: underline;
+}
+
+
+/* Стиль для блока оформления заказа */
+.checkout {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.checkout_body{
+
+    padding: 20px;
+
+
+}
+
+.checkout h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.checkout .login-register {
+  display: inline-block;
+  font-size: 14px;
+  color: #f86619;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.checkout .login-register:hover {
+  color: #d75817; /* Темнее при наведении */
+}
+
+/* Стиль для формы */
+main form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.form-group input {
+  width: 48%; /* Уменьшаем ширину для поля фамилии */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border: 1px solid #f86619;
+}
+
+.delivery {
+  margin-bottom: 20px;
+}
+
+.delivery h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.delivery-options {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.delivery-options label {
+  font-size: 14px;
+  color: #333;
+}
+
+.delivery select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 100px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  resize: none;
+  transition: border 0.3s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border: 1px solid #f86619;
+}
+
+/* Стиль для блока с суммой */
+.summary {
+    font-size: 16px;
+    color: #999999; /* Серый цвет текста */
+    font-weight: 500; /* Жирный текст */
+    line-height: 1.5; /* Увеличенный межстрочный интервал для читаемости */
+}
+
+.summary p {
+    margin: 8px 0; /* Отступы между строками */
+}
+
+.summary span {
+    color: #000000; /* Чуть более темный серый для значений */
+    font-weight: bold; /* Дополнительное выделение для итогов */
+}
+
+
+/* Стиль для кнопки оформления заказа */
+main button[type="submit"] {
+  background-color: #f86619;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+main button[type="submit"]:hover {
+  background-color: #d75817;
+}
+
+/* Стиль для текста с согласием */
+.agreement {
+  font-size: 12px;
+  color: #888;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.agreement a {
+  color: #f86619;
+  text-decoration: none;
+}
+
+.agreement a:hover {
+  text-decoration: underline;
+}
+.delivery select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+    appearance: none; /* Убираем стандартный стрелочный символ */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    position: relative;
+}
+
+.delivery select:focus {
+    outline: none;
+    border: 1px solid #f86619;
+}
+
+/* Для стрелочки на select */
+.delivery select::after {
+    content: '▼';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 14px;
+    color: #999;
+}
+
+/* Стилизация для радиокнопок */
+.delivery-options {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery-options label {
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.promo-code {
+    margin: 15px 0;
+}
+
+.promo-code h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.promo-code input {
+    width: calc(100% - 120px); /* Ширина с учетом кнопки */
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc; /* Стандартная граница */
+    border-radius: 4px; /* Скругленные углы */
+    color: #333; /* Цвет текста */
+    transition: border-color 0.3s ease, color 0.3s ease; /* Плавный переход */
+}
+
+/* Стиль при фокусе на поле */
+.promo-code input:focus {
+    border-color: #f86619; /* Оранжевая граница */
+    outline: none; /* Убираем стандартный outline *//
+}
+
+.promo-code .apply-promo {
+    padding: 8px 20px;
+    background-color: #f86619;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.promo-code .apply-promo:hover {
+    background-color: #e3611b;
+}
+
+/* Базовый стиль контейнера радиокнопки */
+.custom-radio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    margin-bottom: 12px;
+    user-select: none;
+    position: relative;
+}
+
+/* Скрываем стандартный input */
+.custom-radio input[type="radio"] {
+    display: none;
+}
+
+/* Стилизация круга для радиокнопки */
+.radio-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+
+/* Внутренний круг для выделения выбранной радиокнопки */
+.radio-circle::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+/* Текст подписи */
+.radio-label {
+    font-size: 16px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+/* Стилизация для активной радиокнопки */
+.custom-radio input[type="radio"]:checked + .radio-circle {
+    border-color: #f86619;
+    background-color: #f86619;
+}
+
+.custom-radio input[type="radio"]:checked + .radio-circle::after {
+    background-color: #fff;
+}
+
+/* Ховер-эффект */
+.custom-radio:hover .radio-circle {
+    border-color: #f86619;
+}
+
+.custom-radio:hover .radio-label {
+    color: #f86619;
+}
+
+
+
+@media (max-width: 1166px) {
+    main{
+    padding: 150px 0px 0px 0px;
+    margin-bottom: 20px;
+}
+  .cart-container {
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+    .cart-item {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .quantity {
+        justify-self: start; /* Компактное размещение */
+    }
+
+    .price {
+        justify-self: end; /* Центрируем цену на малых экранах */
+        margin-top: 5px;
+    }
+}

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+</head>
+<body>
+    <header class="mobile-header">
+        <div class="container-mobile">
+            <button class="burger-menu" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <a href="#" class="mobile_logo"><img src="/images/device-price-logo.svg" alt="Логотип"></a>
+            
+            <!-- Поисковая строка для планшетов -->
+            <div class="mobile-search-container tablet-search">
+                <input type="text" placeholder="Поиск..." class="mobile-search-input">
+            </div>
+    
+            <div class="icons">
+                <!-- Иконки для мобильной версии -->
+                <a href="#" class="mobile-icon phone"><i class="fas fa-phone"></i></a>
+                <a href="#" class="mobile-icon search" onclick="openSearchModal()"><i class="fas fa-search"></i></a>
+                <a href="#" class="mobile-icon user"><i class="fas fa-user"></i></a>
+                <div class="favorites">
+                    <a href="#" class="tablet-icon"> <!-- Ссылка на страницу Избранного -->
+                        <i class="fa fa-heart"></i>
+                        <span class="counter">0</span>
+                    </a>
+                </div>
+                <div class="comparison">
+                    <a href="#" class="tablet-icon"> <!-- Ссылка на страницу Сравнения -->
+                        <i class="fa fa-chart-bar"></i>
+                        <span class="counter">0</span>
+                    </a>
+                </div>
+                <div class="cart">
+                    <a href="#" class="mobile-icon cart"> <!-- Ссылка на страницу Корзины -->
+                        <i class="fa fa-shopping-cart "></i>
+                        <span class="counter">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="mobile-nav" id="mobile-menu">
+            <div class="menu-content">
+                <!-- Блок выбора города -->
+                <div class="line-menu city-selector">
+                    <form action="#" method="POST" id="change_city">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Ваш город </span>
+                        <select id="region-selector" class="mobile_cities" onchange="saveRegion(this.value)">
+                            <option value="1" selected>Челябинск</option>
+                            <option value="2">Магнитогорск</option>
+                            <option value="3">Екатеринбург</option>
+                        </select>
+                    </form>
+                </div>
+        
+                <!-- Категории товаров -->
+                <div class="menu-section">
+                    <h3 class="menu-title">Категории</h3>
+                    <ul class="categories">
+                        <li class="has-submenu">
+                            <a href="#">Apple <i class="fas fa-chevron-down"></i></a>
+                            <ul class="submenu">
+                                <li><a href="#">Iphone</a></li>
+                                <li><a href="#">Ipad</a></li>
+                                <li><a href="#">MacBook</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Samsung</a></li>
+                        <li><a href="#">Xiaomi</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Личный кабинет -->
+                <div class="menu-section">
+                    <a href="#" class="menu-item">
+                        <i class="fas fa-user"></i>
+                        Личный кабинет
+                    </a>
+                </div>
+        
+                <!-- Быстрые ссылки -->
+                <div class="menu-section">
+                    <a href="#" class="menu-item cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        Корзина
+                        <span class="counter counter-menu-navigation">0</span>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="fas fa-heart"></i>
+                        Избранное
+                        <span class="counter counter-menu-navigation">0</span>
+                    </a>
+                    <a href="#" class="menu-item">
+                        <i class="fas fa-chart-bar"></i>
+                        Сравнение
+                        <span class="counter counter-menu-navigation">0</span>
+                    </a>
+                </div>
+        
+                <!-- Контактный телефон -->
+                <div class="menu-section contact-info">
+                    <a href="tel:+73511234567" class="phone-link">
+                        <i class="fas fa-phone-alt"></i>
+                        +7 (351) 123-45-67
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+
+    <header class="header">
+        <div class="container">
+            <div class="tob-bar-container">
+                <div class="top-bar__inner">
+                    <div class="line-menu">
+                        <form action method="POST" id="change_city">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <select id="region-selector" class="cities" onchange="saveRegion(this.value)">
+                                <option value="1" selected>Челябинск</option>
+                                <option value="2">Магнитогорск</option>
+                                <option value="3">Екатеринбург</option>
+                            </select>
+                        </form>
+                    </div>
+                    <nav class="nav">
+                        <ul class="client__nav">
+                            <li>
+                                <a href="{% url 'garantiya_nizkih_cen' %}">Найдете дешевле - снизим цену</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'contacs' %}">Контакты</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'contacs' %}">Отзывы</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="contact">
+                        <div class="store-addresses">
+                            <a href="#" class="store-addresses-link">
+                                <i class="fas fa-store-alt"></i>
+                                <span>г. Москва, ул. Примерная, д. 1</span>
+                            </a>
+                            <div class="store-addresses-dropdown">
+                                <ul>
+                                    <li>г. Москва, ул. Примерная, д. 1</li>
+                                    <li>г. Санкт-Петербург, ул. Образцовая, д. 2</li>
+                                    <li>г. Новосибирск, ул. Исключительная, д. 3</li>
+                                    <li>г. Екатеринбург, ул. Неповторимая, д. 4</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="working-hours">
+                            <a href="#" class="working-hours-link">
+                                <i class="fas fa-clock"></i>
+                                <span>Пн: 9:00 - 22:00</span>
+                            </a>
+                            <div class="working-hours-dropdown">
+                                <ul>
+                                    <li>Вт: 9:00 - 22:00</li>
+                                    <li>Ср: 9:00 - 22:00</li>
+                                    <li>Чт: 9:00 - 22:00</li>
+                                    <li>Пт: 9:00 - 22:00</li>
+                                    <li>Сб: 10:00 - 20:00</li>
+                                    <li>Вс: 10:00 - 20:00</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="phone">
+                            <a class="highlight-link" href="tel:+1234567890">+7 (968) 116-66-66</a>
+                        </div>
+                    </div>
+                </div>  <!-- Закрывающий div для top-bar__inner -->
+            </div>
+            <div class="desktop-main-header">
+                <div class="desktop-catalog-header">
+                    <div class="desktop-catalog-header-container">
+                        <div class="container-left-part-logo">
+                            <a href="#" class="logo-link">
+                                <img src="/images/device-price-logo.svg" alt="Hi Store Logo" class="logo-image">
+                            </a>
+                        </div>
+                        <div class="container-right-part">
+                            <div class="top-elements">
+                            <div class="devide">
+                            <div class="social-icons">
+                                <a href="https://vk.com/device.blog?from=deivce_service" class="social-icon" target="_blank"><i class="fab fa-vk"></i></a>
+                               <a href="https://www.instagram.com/device_blog" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                               <a href="https://www.youtube.com/@device_blog" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+                                <a href="https://t.me/device_blog" class="social-icon" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                           </div>
+                           <div class="phone-number">
+                               <a href="tel:+78462192408" class="phone-link">
+                               <i class="fas fa-phone-alt"></i>
+                                   +7 (846) 219-24-08
+                               </a>
+                           </div>
+                           <div class="call-button">
+                            <button class="call-button-link" onclick="openModal()">ЗАКАЗАТЬ ЗВОНОК</button>
+                            </div>
+                        </div>
+                           <div class="user-icon">
+                              <a href="#" class="user-icon-link">
+                                   <i class="fas fa-user-circle"></i>
+                                   <span>Войти</span>
+                               </a>
+                            </div>
+                        </div>
+                        <div class="bottom-elements">
+                            <nav class="bottom-nav">
+                                <ul class="bottom-nav-list">
+                                    <li><a href="#" class="bottom-nav-link">Apple</a>
+                                        <ul class="bottom-nav-sublist">
+                                            <li><a href="#" class="bottom-nav-sublink">iPhone</a>
+                                                <ul class="bottom-nav-sublist">
+                                                     <li><a href="#" class="bottom-nav-sublink">iPhone 16 Pro Max</a></li>
+                                                    <li><a href="#" class="bottom-nav-sublink">iPhone 15 Pro</a></li>
+                                                    <li><a href="#" class="bottom-nav-sublink">iPhone 14</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#" class="bottom-nav-sublink">iPad</a>
+                                                  <ul class="bottom-nav-sublist">
+                                                    <li><a href="#" class="bottom-nav-sublink">iPad Pro</a></li>
+                                                    <li><a href="#" class="bottom-nav-sublink">iPad Air</a></li>
+                                                     <li><a href="#" class="bottom-nav-sublink">iPad Mini</a></li>
+                                                  </ul>
+                                            </li>
+                                            <li><a href="#" class="bottom-nav-sublink">Mac</a>
+                                                 <ul class="bottom-nav-sublist">
+                                                    <li><a href="#" class="bottom-nav-sublink">MacBook Pro</a></li>
+                                                    <li><a href="#" class="bottom-nav-sublink">MacBook Air</a></li>
+                                                    <li><a href="#" class="bottom-nav-sublink">Mac mini</a></li>
+                                                 </ul>
+                                            </li>
+                                             <li><a href="#" class="bottom-nav-sublink">AirPods</a>
+                                                   <ul class="bottom-nav-sublist">
+                                                    <li><a href="#" class="bottom-nav-sublink">AirPods Pro</a></li>
+                                                     <li><a href="#" class="bottom-nav-sublink">AirPods Max</a></li>
+                                                      <li><a href="#" class="bottom-nav-sublink">AirPods 3</a></li>
+                                                </ul>
+                                             </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="bottom-nav-link">Samsung</a>
+                                         <ul class="bottom-nav-sublist">
+                                             <li><a href="#" class="bottom-nav-sublink">Смартфоны</a></li>
+                                            <li><a href="#" class="bottom-nav-sublink">Планшеты</a></li>
+                                            <li><a href="#" class="bottom-nav-sublink">Ноутбуки</a></li>
+                                             <li><a href="#" class="bottom-nav-sublink">Наушники</a></li>
+                                        </ul>
+                                     </li>
+                                     <li><a href="#" class="bottom-nav-link">Xiaomi</a>
+                                          <ul class="bottom-nav-sublist">
+                                             <li><a href="#" class="bottom-nav-sublink">Смартфоны</a></li>
+                                             <li><a href="#" class="bottom-nav-sublink">Планшеты</a></li>
+                                            <li><a href="#" class="bottom-nav-sublink">Ноутбуки</a></li>
+                                           <li><a href="#" class="bottom-nav-sublink">Наушники</a></li>
+                                       </ul>
+                                    </li>
+                                    <li><a href="#" class="bottom-nav-link">Dyson</a>
+                                         <ul class="bottom-nav-sublist">
+                                              <li><a href="#" class="bottom-nav-sublink">Пылесосы</a></li>
+                                               <li><a href="#" class="bottom-nav-sublink">Фены</a></li>
+                                                <li><a href="#" class="bottom-nav-sublink">Стайлеры</a></li>
+                        
+                                          </ul>
+                                   </li>
+                                   <li><a href="#" class="bottom-nav-link">Гейминг</a></li>
+                                   <li class="bottom-nav-link">
+                                    <a href="#" class="catalog-menu-link">Клиентам</a>
+                                    <ul class="bottom-nav-sublist">
+                                         <li class="bottom-nav-sublink">
+                                             <a href="#">О компании</a>
+                                        </li>
+                                         <li class="bottom-nav-sublink">
+                                              <a href="#">Гарантия</a>
+                                       </li>
+                                        <li class="bottom-nav-sublink">
+                                             <a href="#">Доставка</a>
+                                        </li>
+                                         <li class="bottom-nav-sublink">
+                                              <a href="#">Самовывоз</a>
+                                       </li>
+                                         <li class="bottom-nav-sublink">
+                                              <a href="#">Оплата</a>
+                                         </li>
+                                         <li class="bottom-nav-sublink">
+                                               <a href="#">Покупка в кредит</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="desktop-user-action">
+                    <div class="user-action-container">
+                        <div class="menu-container">
+                            <div class="menu-trigger">
+                                <a href="#" class="menu-icon-link">
+                                    <i class="fas fa-bars"></i>
+                                    <span>КАТАЛОГ</span>
+                                </a>
+                            </div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#"><img src="images/product.jpg" alt="Телефоны"> Телефоны</a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="tablet.jpg" alt="Планшеты"> Планшеты</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="search-form">
+                            <input type="text" placeholder="Поиск" class="search-input">
+                             <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                        </div>
+                            <div class="action-icons">
+                                <div class="favorites">
+                                    <a href="{% url 'favorite' %}" class="icon-link"> <!-- Ссылка на страницу Избранного -->
+                                        <i class="fa fa-heart"></i>
+                                        <span class="counter">0</span>
+                                    </a>
+                                </div>
+                                <div class="comparison">
+                                    <a href="{% url 'comparisons' %}" class="icon-link"> <!-- Ссылка на страницу Сравнения -->
+                                        <i class="fa fa-chart-bar"></i>
+                                        <span class="counter">0</span>
+                                    </a>
+                                </div>
+                                <div class="cart">
+                                    <a href="{% url 'cart' %}" class="icon-link"> <!-- Ссылка на страницу Корзины -->
+                                        <i class="fa fa-shopping-cart "></i>
+                                        <span class="counter">0</span>
+                                    </a>
+                                </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <script src="/js/script.js"></script>  <!-- Подключение вашего файла -->
+</body>
+</html>

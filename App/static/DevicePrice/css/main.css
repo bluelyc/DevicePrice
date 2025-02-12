@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+main {
+    padding: 20px 0;
+    margin-top: 70px; /* Сдвиг вниз на высоту header */
+    margin-bottom: 10px;
+}
+
+.main_container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-line {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.slider-image {
+    max-width: 1360px;  /* Максимальная ширина — 1360px */
+    width: 100%;        /* Ширина картинки будет адаптироваться */
+    height: auto;       /* Высота автоматически подстраивается */
+    display: block;     /* Убираем лишние отступы вокруг изображений */
+    margin: 0 auto;     /* Центрируем изображения внутри контейнера */
+}
+
+.slider img {
+    display: block;
+    width: 100%;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #424242; /* Черный текст */
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.slider-prev {
+    left: 5px;
+}
+
+.slider-next {
+    right: 5px;
+}
+
+.slider, .products-slider {
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.slider-line, .products-line {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.product-card {
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 0 5px;
+    max-width: 200px; /* Ограничиваем ширину карточки */
+}
+.product-title {
+    font-size: 16px;
+    line-height: 1.5;
+    height: 48px; /* Фиксированная высота для выравнивания */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничить двумя строками */
+    -webkit-box-orient: vertical;
+}
+.product-image {
+    width: 160px;
+    height: 110px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+.product-content {
+    text-align: left; /* Начало контента с начала блока карточки */
+}
+
+.product-title {
+    font-size: 12px;
+    margin: 10px 0;
+    color: #333;
+    word-wrap: break-word; /* Перенос длинных слов */
+    line-height: 1.4;
+}
+
+.product-price {
+    font-size: 18px; /* Увеличиваем шрифт цены */
+    font-weight: bold;
+    color: #000;
+    margin: 5px 0;
+}
+
+.product-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn {
+    border: 1px solid #ccc;
+    padding: 8px 16px; /* Кнопки больше не круглые, с небольшим закруглением */
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-btn {
+    background-color: #f86619;
+    color: #fff;
+    border: none;
+}
+
+.favorite-btn, .compare-btn {
+    color: #868686; /* Убираем фон, только цвет текста */
+    background-color: transparent;
+    border: none;
+}
+
+/* Стили для кнопок переключения слайдера */
+.button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+
+
+.products-next {
+    right: 10px;
+}
+
+.products-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #f86619;
+    margin-bottom: 20px;
+}
+.products-section{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 1366px) {
+    main {
+        padding: 20px 0;
+        margin-top: 125px; /* Сдвиг вниз на высоту header */
+        margin-bottom: 10px;
+    }
+    .products-line{
+        overflow-x: scroll;
+        -ms-overflow-style: none;  /* Для Internet Explorer 10+ */
+        scrollbar-width: none;      /* Для Firefox */
+    }
+    .products-prev, .products-next{
+        display: none;
+    }
+    .products-line::-webkit-scrollbar {
+        display: none;  /* Для Webkit браузеров (Chrome, Safari) */
+    }
+
+}
+@media (max-width: 700px) {
+
+    .product-card {
+        max-width: 160px; /* Ограничиваем ширину карточки */
+    }
+
+
+}
+
+
+
+

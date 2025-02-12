@@ -1,0 +1,717 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <title>Гарантия</title>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'DevicePrice/css/garantiya.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'DevicePrice/css/style.css' %}">
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="top-bar__inner">
+            <div class="line-menu">
+                <form action method="POST" id="change_city">
+                    <i class="fas fa-map-marker-alt"></i> <!-- Иконка местоположения -->
+                    <span>Ваш город: </span>
+                    <select id="region-selector" class="cities" onchange="saveRegion(this.value)">
+                        <option value="1">Челябинск</option>
+                        <option value="2">Магнитогорск</option>
+                        <option value="3">Екатеринбург</option>
+                    </select>
+                </form>
+            </div>
+            <nav class="nav">
+                <ul class="client__nav">
+                    <li>
+                        <a href="{% url 'garantiya_nizkih_cen' %}">Найдете дешевле - снизим цену</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contacs' %}">Контакты</a>
+                    </li>
+                    <li class="catalog_category">
+                        <a href="{% url 'clients' %}">Клиентам</a>
+                        <ul class="catalog_submenu">
+                            <li class="o_kompanii">
+                                <a href="{% url 'about' %}">О компании</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'garantiya' %}">Гарантия</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'delivery' %}">Доставка</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'samovizov' %}">Самовывоз</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'payment' %}">Оплата</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'buy_in_credit' %}">Покупка в кредит</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="contact">
+                <div class="working-hours">
+                    <a href="#">
+                        <i class="fas fa-clock"></i> <!-- Иконка часов -->
+                        <span>09:00-22:00</span>
+                    </a>
+                </div>
+                <div class="phone">
+                    <a class="highlight-link" href="tel:+1234567890">+7 (968) 116-66-66</a>
+                </div>
+                <div class="callback">
+                    <a class="highlight-link" href="#" onclick="openModal()">
+                        <i class="fas fa-phone-alt"></i> <!-- Иконка телефона -->
+                        <span>Заказать звонок</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header__container">
+        <div class="header__inner">
+            <div class="logo">
+                <a href="{% url 'index' %}">
+                    <img src="{% static 'DevicePrice/images/device-price-logo.svg' %}"
+                         alt="Логотип магазина Девайс-Прайс">
+                </a>
+            </div>
+            <nav class="nav">
+                <div class="mobile-menu" id="mobileMenu">
+                    <ul class="mobile-list">
+                        <li>
+                            <a href="javascript:void(0)">Телефоны</a>
+                            <ul class="mobile__submenu">
+                                <li><a href="{% url 'category' %}?category=Телефон$brand=Apple">Apple</a></li>
+                                <li><a href="{% url 'category' %}?category=Телефон$brand=Xiaomi">Xiaomi</a></li>
+                                <li><a href="{% url 'category' %}?category=Телефон$brand=Samsung">Samsung</a></li>
+                                <li><a href="{% url 'category' %}?category=Телефон$brand=Tecno">Tecno</a></li>
+                                <li><a href="{% url 'category' %}?category=Телефон$brand=Nothing">Nothing</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Планшеты</a>
+                            <ul class="mobile__submenu">
+                                <li class="catalog_product">
+                                    <a href="{% url 'category' %}?category=Планшет$brand=Apple">Apple</a>
+                                </li>
+                                <li class="catalog_product">
+                                    <a href="{% url 'category' %}?category=Планшет$brand=Xiaomi">Xiaomi</a>
+                                </li>
+                                <li class="catalog_product">
+                                    <a href="{% url 'category' %}?category=Планшет$brand=Samsung">Samsung</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Ноутбуки</a>
+                            <ul class="mobile__submenu">
+                                <li class="catalog_product">
+                                    <a href="{% url 'category' %}?category=Ноутбук$brand=Apple">MacBook</a>
+                                </li>
+                                <li class="catalog_product">
+                                    <a href="{% url 'category' %}?category=Ноутбук$brand=Мышки">Мышки</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Смарт часы</a>
+                            <ul class="mobile__submenu">
+                                <li><a href="{% url 'category' %}?category=Часы$brand=Apple">Apple</a></li>
+                                <li><a href="{% url 'category' %}?category=Часы$brand=Hoco">Hoco</a></li>
+                                <li><a href="{% url 'category' %}?category=Часы$brand=Samsung">Samsung</a></li>
+                                <li><a href="{% url 'category' %}?category=Часы$brand=Xiaomi">Xiaomi</a></li>
+                                <li><a href="{% url 'category' %}?category=Часы$brand=Honor">Honor</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Акустика</a>
+                            <ul class="mobile__submenu">
+                                <li><a href="{% url 'category' %}?category=Акустика$brand=Apple">AirPods</a></li>
+                                <li><a href="{% url 'category' %}?category=Акустика$brand=Наушники">Наушники</a></li>
+                                <li><a href="{% url 'category' %}?category=Акустика$brand=ПортАкустика">Портативная
+                                    акустика</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Гаджеты</a>
+                            <ul class="mobile__submenu">
+                                <li><a href="{% url 'category' %}?category=Гаджет$brand=Пылесос">Пылесосы</a></li>
+                                <li><a href="{% url 'category' %}?category=Гаджет$brand=Apple">Apple</a></li>
+                                <li><a href="{% url 'category' %}?category=Гаджет$brand=Дом">Для дома</a></li>
+                                <li><a href="{% url 'category' %}?category=Гаджет$brand=Красота">Для красоты</a></li>
+                                <li><a href="{% url 'category' %}?category=Гаджет$brand=Конструктор">Конструктор</a></li>
+                                <li><a href="{% url 'category' %}?category=Гаджет$brand=Массажер">
+                                    <Массажеры></Массажеры>
+                                </a></li>
+                                <li><a href="{% url 'category' %}?category=Гаджет$brand=Аккумулятор">Портативные
+                                    аккумуляторы</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Аксессуары</a>
+                            <ul class="mobile__submenu">
+                                <li><a href="{% url 'category' %}?category=Аксессуар$brand=АвтоЗарядка">Автомобильная
+                                    зарядка</a></li>
+                                <li><a href="{% url 'category' %}?category=Аксессуар$brand=Авто">Автомобильный
+                                    держатель</a></li>
+                                <li><a href="{% url 'category' %}?category=Аксессуар$brand=Видеорегистратор">Видеорегистратор</a>
+                                </li>
+                                <li><a href="{% url 'category' %}?category=Аксессуар$brand=Зарядка">Зарядные
+                                    устройства</a></li>
+                                <li><a href="{% url 'category' %}?category=Аксессуар$brand=Зонт">Зонты</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Игровые приставки</a>
+                            <ul class="mobile__submenu">
+                                <li>
+                                    <a href="{% url 'category' %}?category=Консоль$brand=Sony">Sony</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'category' %}?category=Консоль$brand=Xbox">Xbox</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'category' %}?category=Консоль$brand=Steam">Steam Deck</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'category' %}?category=Консоль$brand=Nintendo">Nintendo</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'category' %}?category=Консоль$brand=Oculus">Oculus</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="{% url 'category' %}?category=TV">Телевизоры</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="catalog">
+                    <li class="catalog_category">
+                        <a href="{% url 'category' %}?category=Телефон">Телефоны</a>
+                        <ul class="catalog_submenu">
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Телефон&brand=Apple">Apple</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Телефон&brand=Xiaomi">Xiaomi</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Телефон&brand=Samsung">Samsung</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Телефон&brand=Tecno">Tecno</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Телефон&brand=Nothing">Nothing</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="catalog_category">
+                        <a href="{% url 'category' %}?category=Планшет">Планшеты</a>
+                        <ul class="catalog_submenu">
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Планшет&brand=Apple">Apple</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Планшет&brand=Xiaomi">Xiaomi</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Планшет&brand=Samsung">Samsung</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="catalog_category">
+                        <a href="{% url 'category' %}?category=Ноутбук">Ноутбуки</a>
+                        <ul class="catalog_submenu">
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Ноутбук&brand=Apple">MacBook</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Ноутбук&brand=Мышки">Мышки</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="catalog_category">
+                        <a href="{% url 'category' %}?category=Часы">Смарт часы</a>
+                        <ul class="catalog_submenu">
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Часы&brand=Apple">Apple</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Часы&brand=Hoco">Hoco</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Часы&brand=Samsung">Samsung</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Часы&brand=Xiaomi">Xiaomi</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Часы&brand=Honor">Honor</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="catalog_category">
+                        <a href="{% url 'category' %}?category=Акустика">Акустика</a>
+                        <ul class="catalog_submenu">
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Акустика&brand=Apple">AirPods</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Акустика&brand=Наушники">Наушники</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Акустика&brand=Portable">Портативная акустика</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="catalog_category">
+                        <a href="{% url 'category' %}?category=Гаджет">Гаджеты</a>
+                        <ul class="catalog_submenu">
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Гаджет&brand=Пылесосы">Пылесосы</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Гаджет&brand=Apple">Apple</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Гаджет&brand=Дом">Для дома</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Гаджет&brand=Красота">Для красоты</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Гаджет&brand=Конструктор">Конструктор</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Гаджет&brand=Массажер">Массажеры</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Гаджет&brand=Аккумулятор">Портативные
+                                    аккумуляторы</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="catalog_category">
+                        <a href="{% url 'category' %}?category=Аксессуар">Аксессуары</a>
+                        <ul class="catalog_submenu">
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Аксессуар&brand=АвтоЗарядка">Автомобильная
+                                    зарядка</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Аксессуар&brand=Авто">Автомобильный держатель</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Аксессуар&brand=Видеорегистратор">Видеорегистратор</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Аксессуар&brand=Зарядка">Зарядные устройства</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Аксессуар&brand=Зонт">Зонты</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="catalog_category">
+                        <a href="{% url 'category' %}?category=Консоль">Игровые приставки</a>
+                        <ul class="catalog_submenu">
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Консоль&brand=Sony">Sony</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Консоль&brand=Xbox">Xbox</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Консоль&brand=Steam">Steam Deck</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Консоль&brand=Nintendo">Nintendo</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'category' %}?category=Консоль&brand=Oculus">Oculus</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'category' %}?category=TV">Телевизоры</a>
+                    </li>
+                </ul>
+                <ul class="client__nav__mobile">
+                    <li>
+                        <a href="{% url 'garantiya_nizkih_cen' %}">Найдете дешевле - снизим цену</a>
+                    </li>
+                    <li class="catalog_category">
+                        <a href="javascript:void(0)">Клиентам</a>
+                        <ul class="catalog_submenu">
+                            <li class="o_kompanii">
+                                <a href="{% url 'about' %}">О компании</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'garantiya' %}">Гарантия</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'delivery' %}">Доставка</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'samovizov' %}">Самовывоз</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'payment' %}">Оплата</a>
+                            </li>
+                            <li class="catalog_product">
+                                <a href="{% url 'buy_in_credit' %}">Покупка в кредит</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'contacs' %}">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="user-action-container">
+                <div class="user">
+                    <a href="javascript:void(0)" class="icon-link" onclick="openSearchModal()"> <!-- Ссылка на страницу Корзины -->
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+                <div class="favorites">
+                    <a href="{% url 'favorite' %}" class="icon-link"> <!-- Ссылка на страницу Избранного -->
+                        <i class="fa fa-heart"></i>
+                        <span class="counter">{{ favorites_count }}</span>
+                    </a>
+                </div>
+                <div class="comparison">
+                    <a href="{% url 'comparisons' %}" class="icon-link"> <!-- Ссылка на страницу Сравнения -->
+                        <i class="fa fa-chart-bar"></i>
+                        <span class="counter">{{ comparisons_count }}</span>
+                    </a>
+                </div>
+                <div class="cart">
+                    <a href="{% url 'cart' %}" class="icon-link"> <!-- Ссылка на страницу Корзины -->
+                        <i class="fa fa-shopping-cart "></i>
+                        <span class="counter">{{ cart_count }}</span>
+                    </a>
+                </div>
+                <div class="user">
+                    <a href="{% url 'login' %}" class="icon-link"> <!-- Ссылка на страницу Корзины -->
+                        <i class="user-icon fas fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header__burger" onclick="toggleMenu()">
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="main_container">
+        <section class="warranty">
+    <div class="warranty_header">
+        <h2>Гарантия</h2>
+    </div>
+    <div class="warranty_content">
+        <p>Уважаемые покупатели!</p>
+        <p>
+            Мы предоставляем гарантию на всю продукцию магазина:
+        </p>
+        <ul>
+            <li>На смартфоны — <strong>12 месяцев</strong> с даты продажи;</li>
+            <li>На электронные аксессуары, приобретаемые отдельно — <strong>3 месяца</strong> с даты продажи.</li>
+        </ul>
+        <p>Сроки гарантии фиксируются в гарантийном талоне, который вы получите в день покупки.</p>
+        <p>
+            Если вы найдете дефект в устройстве в течение гарантийного срока, вы можете обратиться в пункт приема/выдачи, указанный в гарантийном талоне.
+            Мы оперативно исправим проблему с дефектной частью при наличии недостатков по вине производителя.
+        </p>
+
+        <h3>Условия предоставления услуг по гарантии:</h3>
+        <ul>
+            <li>Предоставить заполненный гарантийный талон.</li>
+            <li>Мобильные устройства принимаются в надлежащей упаковке, обеспечивающей целостность при перевозке, в полном комплекте (коробка, зарядное устройство и т.п.).</li>
+            <li>Каждое устройство сначала принимается на диагностику, чтобы определить, подлежит ли оно гарантийному ремонту.</li>
+        </ul>
+
+        <h3>Ограниченная гарантия:</h3>
+        <ul>
+            <li>На зарядные устройства, наушники, аксессуары планшетов/мобильных телефонов, кабели и переходники — <strong>1 месяц</strong>.</li>
+            <li>На аккумуляторные батареи, входящие в комплект изделия или встроенные в устройство — <strong>6 месяцев</strong>.</li>
+        </ul>
+        <p>
+            Срок гарантийного ремонта не может превышать <strong>45 дней</strong>. Срок гарантии на устройство автоматически увеличивается на время нахождения его на ремонте.
+        </p>
+
+        <h3>Причины отказа в гарантийном ремонте:</h3>
+        <ul class="refusal_reasons">
+            <li>Несоответствие модели, серийного номера или отсутствие данных в гарантийном талоне;</li>
+            <li>Повреждение серийного номера или его удаление;</li>
+            <li>Использование устройства не по назначению;</li>
+            <li>Повреждения, вызванные природными явлениями, механическими повреждениями, попаданием посторонних предметов и т.д.;</li>
+            <li>Самовольная модернизация, ремонт или разборка устройства;</li>
+            <li>Подключение несертифицированных периферийных устройств или использование неоригинального ПО;</li>
+            <li>Наличие двух и менее дефектных пикселей на дисплее;</li>
+            <li>Трещины на ЖК-дисплее и механические повреждения.</li>
+        </ul>
+
+        <div class="warranty_law">
+            <h3>Важно!</h3>
+            <p>
+                В соответствии с действующим законодательством ОБМЕН (ВОЗВРАТ) технически сложных товаров надлежащего качества <strong>НЕВОЗМОЖЕН</strong> (ст. 25 ЗоЗПП и Постановление Правительства РФ №55).
+            </p>
+            <p>
+                Это означает, что сложная бытовая техника (мобильные телефоны, радиотелефоны, DVD-проигрыватели, фотоаппараты, видеокамеры, акустика и т.п.) надлежащего качества не подлежит обмену и возврату по причине неподходящего цвета, размера, функций и прочего.
+            </p>
+        </div>
+    </div>
+</section>
+
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer__container">
+        <nav class="mobile_footer_nav">
+            <button class="mobile_button_info">Клиентам</button>
+            <ul class="mobile_footer_info">
+                <li><a href="{% url 'about' %}">О компании</a></li>
+                <li><a href="{% url 'contacs' %}">Контакты</a></li>
+                <li><a href="{% url 'garantiya_nizkih_cen' %}">Гарантия низкой цены</a></li>
+                <li><a href="{% url 'buy_in_credit' %}">Покупка в кредит</a></li>
+                <li><a href="{% url 'garantiya' %}">Гарантия</a></li>
+                <li><a href="{% url 'samovizov' %}">Самовывоз</a></li>
+                <li><a href="{% url 'payment' %}">Оплата</a></li>
+            </ul>
+            <div class="mobile_bottom_container">
+                <div class="mobile_bottom_nav">
+                    <div class="mobile_email_follow_block">
+                        <form action="" class="mobile_email_follow">
+                            <label for="mobile_email">Следите за новостями и акциями</label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="email" id="mobile_email" name="email" class="mobile_input_email"
+                                       placeholder="Введите вашу почту">
+                                <button type="submit">↵</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="mobile_media">
+                        <a href="https://vk.com/device.blog" target="_blank" class="mobile_vk">
+                            <img src="{% static 'DevicePrice/images/vk-logo-svgrepo-com.svg' %}" alt="Vk"
+                                 class="mobile_media_icon">
+                        </a>
+                        <a href="https://vk.com/device.blog" target="_blank" class="mobile_telegram">
+                            <img src="{% static 'DevicePrice/images/telegram-svgrepo-com.svg' %}" alt="Telegram"
+                                 class="mobile_media_icon">
+                        </a>
+                        <a href="https://vk.com/device.blog" target="_blank" class="mobile_youtube">
+                            <img src="{% static 'DevicePrice/images/youtube-168-svgrepo-com.svg' %}" alt="Youtube"
+                                 class="mobile_media_icon">
+                        </a>
+                        <a href="https://vk.com/device.blog" target="_blank">
+                            <img src="{% static 'DevicePrice/images/yandex-market-svgrepo-com.svg' %}"
+                                 alt="Yandex Market" class="mobile_media_icon">
+                        </a>
+                        <a href="https://vk.com/device.blog" target="_blank">
+                            <img src="{% static 'DevicePrice/images/2gis-svgrepo-com.svg' %}" alt="2GIS"
+                                 class="mobile_media_icon">
+                        </a>
+                    </div>
+                    <div class="mobile_footer_contact">
+                        <span class="phone_topic">+7 (968) 116-66-66 (С 09:00 До 22:00)</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="footer__nav">
+            <div class="right__nav">
+                <ul class="footer__catalog">
+                    <li class="topic"><span>Каталог</span></li>
+                    <li><a href="{% url 'category' %}?category=Телефон">Телефоны</a></li>
+                    <li><a href="{% url 'category' %}?category=Планшет">Планшеты</a></li>
+                    <li><a href="{% url 'category' %}?category=Ноутбук">Ноутбуки</a></li>
+                    <li><a href="{% url 'category' %}?category=Часы">Смарт часы</a></li>
+                    <li><a href="{% url 'category' %}?category=Акустика">Акустика</a></li>
+                    <li><a href="{% url 'category' %}?category=Гаджет">Гаджеты</a></li>
+                    <li><a href="{% url 'category' %}?category=Аксессуар">Аксессуары</a></li>
+                    <li><a href="{% url 'category' %}?category=TV">Телевизоры</a></li>
+                    <li><a href="{% url 'category' %}?category=Консоль">Игровые приставки</a></li>
+                </ul>
+                <ul class="footer__info">
+                    <li class="topic"><span>Информация</span></li>
+                    <li><a href="{% url 'contacs' %}">Контакты</a></li>
+                    <li><a href="{% url 'garantiya_nizkih_cen' %}">Гарантия низкой цены</a></li>
+                    <li><a href="{% url 'buy_in_credit' %}">Покупка в кредит</a></li>
+                    <li><a href="{% url 'garantiya' %}">Гарантия</a></li>
+                    <li><a href="{% url 'about' %}"> О комапнии</a></li>
+                    <li><a href="{% url 'payment' %}">Оплата</a></li>
+                    <li><a href="{% url 'samovizov' %}">Самовывоз</a></li>
+                </ul>
+            </div>
+            <div class="contact_info">
+                <span class="phone_topic">+7 (968) 116-66-66</span>
+                <span class="highlight-link">Часы работы 09:00-22:00</span>
+            </div>
+            <div class="left__container">
+                <div class="left__nav">
+                    <div class="left_topic">
+                        <span>Оставайтесь на связи</span>
+                    </div>
+                    <div class="email_follow_block">
+                        <form action="" class="email__follow">
+                            <label for="email">Следите за новостями и акциями</label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="email" id="email" name="email" class="input_email"
+                                       placeholder="Введите вашу почту">
+                                <button type="submit">↵</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="media">
+                        <a href="https://vk.com/device.blog" target="_blank" class="vk">
+                            <img src="{% static 'DevicePrice/images/vk-logo-svgrepo-com.svg' %}" alt="Vk"
+                                 class="media__icon">
+                        </a>
+                        <a href="https://vk.com/device.blog" target="_blank" class="telegram">
+                            <img src="{% static 'DevicePrice/images/telegram-svgrepo-com.svg' %}" alt="Vk"
+                                 class="media__icon">
+                        </a>
+                        <a href="https://vk.com/device.blog" target="_blank" class="youtube">
+                            <img src="{% static 'DevicePrice/images/youtube-168-svgrepo-com.svg' %}" alt="Vk"
+                                 class="media__icon">
+                        </a>
+                        <a href="https://vk.com/device.blog" target="_blank">
+                            <img src="{% static 'DevicePrice/images/yandex-market-svgrepo-com.svg' %}" alt="Vk"
+                                 class="media__icon">
+                        </a>
+                        <a href="https://vk.com/device.blog" target="_blank">
+                            <img src="{% static 'DevicePrice/images/2gis-svgrepo-com.svg' %}" alt="Vk"
+                                 class="media__icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</footer>
+<div class="modal" id="modal">
+    <div class="modal_body" id="modal_body">
+        <div class="modal-content" id="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Заказать звонок</h2>
+            <form class="callback-form">
+                <label for="name">Укажите ваше имя:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="phone">Укажите ваш номер:</label>
+                <input type="tel" id="phone" name="phone" pattern="\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}"
+                       placeholder="+7 (999) 123-45-67" required>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="searchModal" class="search-modal">
+    <div class="search-modal-content">
+        <span class="search-close" onclick="closeSearchModal()">&times;</span>
+        <h2>Поиск товара</h2>
+        <!-- Форма поиска -->
+        <form id="search-form" onsubmit="return false;">
+            <input type="text" id="search-input" placeholder="Введите запрос..." class="search-input">
+            <button type="button" class="search-btn" onclick="performSearch()">Поиск</button>
+        </form>
+        <div id="search-results" class="search-results">
+            <!-- Результаты поиска будут отображаться здесь -->
+        </div>
+    </div>
+</div>
+<style>
+    .media__icon {
+        filter: invert(1) brightness(2); /* Изначальный белый */
+        transition: filter 0.3s ease; /* Анимация */
+    }
+
+    .vk:hover {
+        filter: brightness(0) saturate(100%) invert(31%) sepia(95%) saturate(2463%) hue-rotate(202deg) brightness(101%) contrast(102%);
+    }
+
+
+    /* Telegram */
+    .telegram:hover {
+        filter: brightness(0) saturate(100%) invert(65%) sepia(24%) saturate(2502%) hue-rotate(164deg) brightness(91%) contrast(91%);
+    }
+
+    /* YouTube */
+    .youtube:hover {
+        filter: brightness(0) saturate(100%) invert(32%) sepia(89%) saturate(3196%) hue-rotate(349deg) brightness(87%) contrast(90%);
+    }
+</style>
+<style>
+    .mobile_media_icon {
+        filter: invert(1) brightness(2); /* Изначальный белый */
+        transition: filter 0.3s ease; /* Анимация */
+    }
+
+    .vk:hover {
+        filter: brightness(0) saturate(100%) invert(31%) sepia(95%) saturate(2463%) hue-rotate(202deg) brightness(101%) contrast(102%);
+    }
+
+
+    /* Telegram */
+    .telegram:hover {
+        filter: brightness(0) saturate(100%) invert(65%) sepia(24%) saturate(2502%) hue-rotate(164deg) brightness(91%) contrast(91%);
+    }
+
+    /* YouTube */
+    .youtube:hover {
+        filter: brightness(0) saturate(100%) invert(32%) sepia(89%) saturate(3196%) hue-rotate(349deg) brightness(87%) contrast(90%);
+    }
+</style>
+<script>
+    document.querySelector('.header__burger').addEventListener('click', function () {
+        this.classList.toggle('active');
+        document.body.classList.toggle('lock'); // Добавляет или удаляет класс "lock" у body
+    });
+</script>
+
+<script>
+    document.querySelectorAll('.mobile-menu ul > li > a').forEach(item => {
+        item.addEventListener('click', function (e) {
+
+            const parentLi = this.parentElement; // Родительский элемент списка
+
+            // Проверяем, есть ли вложенный список
+            const subMenu = parentLi.querySelector('ul');
+
+            if (subMenu) {
+                // Переключаем класс active для показа/скрытия подменю
+                subMenu.classList.toggle('active');
+
+                // Скрываем другие открытые подменю, если нужно
+            }
+        });
+    });
+</script>
+<script>
+    document.querySelector('.mobile_button_info').addEventListener('click', function () {
+        const infoMenu = document.querySelector('.mobile_footer_info');
+        infoMenu.classList.toggle('active');
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="{% static 'DevicePrice/script/script.js' %}"></script>
+<script src="{% static 'DevicePrice/script/main.js' %}"></script>
+<script src="{% static 'DevicePrice/script/region_selector.js' %}"></script>
+</body>
+</html>

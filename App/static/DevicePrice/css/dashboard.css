@@ -1,0 +1,114 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+
+    padding: 120px 0px 0px 0px;
+    margin-bottom: 20px;
+  }
+
+  main .container {
+        max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .user-info,
+  .user-orders {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+  }
+
+  .user-info {
+    background-color: #ffffff;
+  }
+
+  .user-info h2 {
+    margin-bottom: 10px;
+  }
+
+  .user-info p {
+    margin: 10px 0;
+  }
+
+  .user-info a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .user-orders {
+    flex: 2;
+  }
+
+  .order {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .order-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+  }
+
+  .order-details {
+    flex: 1;
+  }
+
+  .order h3 {
+    margin-top: 0;
+  }
+
+  .order-price,
+  .order-date,
+  .order-status {
+    margin: 5px 0;
+  }
+
+  .order a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .user-info {
+      margin-bottom: 20px;
+    }
+
+    .user-orders {
+      margin-top: 20px;
+    }
+
+    .order {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .order-details {
+      margin-top: 15px;
+    }
+  }

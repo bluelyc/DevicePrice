@@ -1,0 +1,115 @@
+/* Общие стили для блока оплаты */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+main{
+        line-height: 1.6;
+    padding: 100px 0px 0px 0px;
+}
+.main_container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #f86619; /* Акцентная линия сверху */
+}
+/* Общие стили для блока оплаты */
+/* Общие стили для блока оплаты */
+.payment {
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Заголовок */
+.payment h2 {
+    font-size: 32px;
+    color: #f86619; /* Цвет основной палитры */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Раздел для физических и юридических лиц */
+.payment-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Стили для физических лиц (справа) */
+.payment-physical,
+.payment-legal {
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    /* Если экран достаточно большой, разделяем на два блока */
+    .payment-physical,
+    .payment-legal {
+        width: 48%;
+    }
+}
+
+/* Заголовки для каждой секции */
+.payment-physical h3,
+.payment-legal h3 {
+    font-size: 24px;
+    color: #f86619; /* Главный цвет палитры */
+    border-bottom: 2px solid #f86619;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Стили для списка способов оплаты */
+.payment-methods {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main_container .payment-methods li {
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+/* Важная информация */
+.important-text {
+    font-size: 16px;
+    color: #333;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Стиль для текста в важных блоках */
+.important-text p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* Мобильные стили */
+@media (max-width: 767px) {
+    /* Для мобильных устройств блоки будут по ширине 100% */
+    .payment-physical,
+    .payment-legal {
+        width: 100%;
+    }
+
+    .payment-section {
+        flex-direction: column;
+    }
+}
+
+

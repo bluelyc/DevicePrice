@@ -1,0 +1,92 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+main{
+        line-height: 1.6;
+        padding: 100px 0px 0px 0px;
+}
+.main_container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #f86619; /* Акцентная линия сверху */
+}
+
+/* Секция промо */
+.promo {
+    background: linear-gradient(135deg, #f86619 0%, #ff9d5c 100%); /* Плавный переход основного цвета */
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень для объема */
+}
+
+.promo_text {
+    font-size: 1.2rem;
+    color: #fff; /* Контрастный белый текст для читаемости */
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.promo_text strong {
+    color: #ffe69c; /* Выделение цифры 10% нежным желтым */
+    font-size: 1.3rem;
+}
+
+
+.conditions h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #f86619; /* Линия под заголовком */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.condition_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.condition_list > li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+    color: #333;
+}
+
+.condition_list > li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #f86619;
+    font-size: 1.5rem;
+    line-height: 1;
+    top: 0;
+}
+
+.condition_list ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: disc;
+    color: #555;
+}
+
+.note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+    background: #fff7f0;
+    padding: 15px;
+    border-left: 5px solid #f86619;
+    border-radius: 8px;
+}

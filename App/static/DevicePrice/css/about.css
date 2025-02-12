@@ -1,0 +1,147 @@
+/* Секция о компании */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+main{
+        line-height: 1.6;
+    padding: 100px 0px 0px 0px;
+}
+.main_container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #f86619; /* Акцентная линия сверху */
+}
+
+
+.about_header h2 {
+    font-size: 2rem;
+    color: #f86619; /* Основной цвет для заголовка */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.about_tagline {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #f86619, #ff9d5c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Эффект градиента на тексте */
+}
+
+.about_content h3 {
+    font-size: 1.3rem;
+    color: #f86619;
+    margin-bottom: 10px;
+}
+
+.about_content p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.product_list {
+    padding-left: 20px;
+    list-style: disc;
+    color: #444;
+}
+
+.product_list li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+/* Основные стили для раздела отзывов */
+/* Основные стили для раздела отзывов */
+.reviews {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.reviews h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #f86619; /* Основной цвет для заголовка */
+    text-align: center;
+    position: relative;
+}
+
+/* Подчеркивание заголовка */
+.reviews h2::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background-color: #f86619;
+}
+
+/* Описание под заголовком */
+.reviews p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Сетка карточек */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Стили для карточек */
+.review-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    position: relative; /* Для позиционирования имени автора */
+}
+
+.review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.review_text {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.review_author {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #007BFF;
+    position: absolute;
+    bottom: 0px;
+    right: 5px;
+    margin: 0;
+}
+
+
+
+
+

@@ -1,0 +1,141 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f4f4f4; /* Легкий нейтральный фон */
+    color: #333; /* Цвет текста */
+}
+
+/* Контейнер регистрации */
+.registration-container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Контейнер формы */
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Мягкая тень для выделения */
+    padding: 30px;
+    width: 100%;
+    border: 1px solid #e0e0e0; /* Легкая граница */
+    margin-top: 20px; /* Расстояние между заголовком и формой */
+}
+
+/* Заголовок */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
+}
+
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Поля ввода */
+input[type="text"],
+input[type="password"],
+input[type="email"]{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f9f9f9; /* Легкий фон для полей ввода */
+}
+
+/* Кнопка отправки */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #f86619;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #e65c18;
+}
+
+/* Ссылки */
+a {
+    font-size: 14px;
+    color: #888;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: none;
+}
+
+/* Стили для раздела ссылок */
+.links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.links a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 14px;
+    color: #888;
+    text-decoration: none;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Стили для ссылки "Вернуться на главную" */
+.back-to-home {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 14px;
+    color: #f86619;
+    text-decoration: none;
+}
+
+.back-to-home:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивные стили */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button[type="submit"] {
+        font-size: 14px;
+    }
+
+    .links a {
+        font-size: 12px;
+    }
+}

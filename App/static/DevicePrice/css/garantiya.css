@@ -1,0 +1,68 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+main{
+        line-height: 1.6;
+        padding: 100px 0px 0px 0px;
+}
+.main_container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #f86619; /* Акцентная линия сверху */
+}
+
+
+.warranty_header h2 {
+    font-size: 2rem;
+    color: #f86619; /* Акцентный цвет */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.warranty_content p, .warranty_content ul {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.warranty_content h3 {
+    font-size: 1.3rem;
+    color: #f86619;
+    margin-bottom: 10px;
+}
+
+.warranty_content ul {
+    padding-left: 20px;
+    list-style: disc;
+}
+
+.refusal_reasons li {
+    margin-bottom: 10px;
+}
+
+.warranty_law {
+    background: #fdf2e9;
+    padding: 20px;
+    border-left: 5px solid #f86619;
+    margin-top: 30px;
+}
+
+.warranty_law h3 {
+    font-size: 1.5rem;
+    color: #f86619;
+    margin-bottom: 10px;
+}
+
+.warranty_law p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+}

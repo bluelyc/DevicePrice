@@ -1,0 +1,175 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+main{
+        line-height: 1.6;
+    padding: 100px 0px 0px 0px;
+}
+.main_container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #f86619; /* Акцентная линия сверху */
+}
+.contacts {
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.contacts h2 {
+    font-size: 32px; /* Указанный размер */
+    color: #f86619; /* Основной цвет */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contacts-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Стили для блока информации */
+.contacts-info {
+    flex: 1;
+    max-width: 40%;
+}
+
+.contact-item {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contact-item i {
+    font-size: 20px;
+    color: #f86619;
+}
+
+.contact-item p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.contact-item ul {
+    margin: 10px 0 0 25px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-item li {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-item span {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Кнопка обратного звонка */
+.callback-btn {
+    padding: 10px 20px;
+    background-color: #f86619;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.callback-btn:hover {
+    background-color: #d75416;
+}
+
+/* Карта */
+.contacts-map {
+    flex: 1;
+    max-width: 55%;
+}
+
+.contacts-map iframe {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Подвал */
+/* Таблица адресов */
+.address-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.address-table th,
+.address-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.address-table th {
+    background-color: #f86619; /* Основной цвет */
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.address-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.address-table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Для иконок */
+.contact-item i {
+    font-size: 20px;
+    color: #f86619;
+    margin-right: 10px;
+}
+
+
+/* ====== Адаптивность ====== */
+@media (max-width: 768px) {
+    .contacts-wrapper {
+        flex-direction: column;
+    }
+    .contacts-info,
+    .contacts-map {
+        max-width: 100%;
+    }
+    .contacts-map iframe {
+        height: 300px; /* Меньшая высота карты на маленьких экранах */
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts h2 {
+        font-size: 28px; /* Уменьшение заголовка */
+    }
+    .callback-btn {
+        font-size: 14px; /* Меньший текст кнопки */
+        padding: 8px 16px;
+    }
+    .contact-item p {
+        font-size: 16px; /* Уменьшение размера текста */
+    }
+    .contact-item li {
+        font-size: 14px;
+    }
+}
